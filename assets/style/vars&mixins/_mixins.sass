@@ -1,0 +1,248 @@
+@import vars
+
+/**************************************************
+/*                   F o n t s                    *
+/**************************************************
+
+=MontserratSerif()
+  font-family: Montserrat, serif
+
+=MaterialIcon()
+  +flex-center-center
+  font-family: Material Icons, serif
+  pointer-events: none
+  font-weight: normal
+  font-size: 24px
+  line-height: 24px
+  text-transform: none
+  white-space: nowrap
+  direction: ltr
+  -webkit-font-smoothing: antialiased
+  text-rendering: optimizeLegibility
+  -moz-osx-font-smoothing: grayscale
+  font-feature-settings: "liga"
+
+/**************************************************
+/*                    T e x t                     *
+/**************************************************
+
+=textEllipsis()
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
+
+=textDarkShade-700()
+  color: $DarkShade
+  font-weight: 700
+
+=textDarkShade75-400()
+  color: $DarkShade75
+  font-weight: 400
+
+=text-12-15-700()
+  font-size: 12px
+  line-height: 14.63px
+  font-weight: 700
+
+// h1
+=textDarkShade-24-29-700()
+  +textDarkShade-700
+  font-size: 24px
+  line-height: 29.26px
+
+// h2
+=textDarkShade-19-23-700()
+  +textDarkShade-700
+  font-size: 19px
+  line-height: 23.16px
+
+// h3
+=textDarkShade-12-15-700-uppercase()
+  +text-12-15-700
+  color: $DarkShade
+  text-transform: uppercase
+
+
+/**************************************************
+/*                    F l e x                     *
+/**************************************************
+
+=flex-column()
+  display: flex
+  flex-direction: column
+
+=flex-center-center()
+  display: flex
+  justify-content: center
+  align-items: center
+
+=flex-between-center()
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+
+/**************************************************
+/*                A b s o l u t e                 *
+/**************************************************
+
+=absolute-top-left($top, $left: $top)
+  position: absolute
+  top: $top
+  left: $left
+
+=absolute-top-right($top, $right: $top)
+  position: absolute
+  top: $top
+  right: $right
+
+=absolute-bottom-left($bottom, $left: $bottom)
+  position: absolute
+  bottom: $bottom
+  left: $left
+
+=absolute-bottom-right($bottom, $right: $bottom)
+  position: absolute
+  bottom: $bottom
+  right: $right
+
+
+/**************************************************
+/*                   I n p u t                    *
+/**************************************************
+
+=Input()
+  width: $ObjectWidth-px
+  height: $ObjectHeight-px
+  background: $Background
+  border: $ObjectBorder
+  border-radius: $ObjectBorderRadius
+  padding: 2px 15px 0
+  &::placeholder
+    color: $DarkShade25
+  @media (hover), (min-width: 0\0), (min--moz-device-pixel-ratio: 0)
+    &:hover, &:focus
+      border-color: $ObjectBorder-focus
+    &[type=number]
+      &, &:hover, &:focus
+        -moz-appearance: textfield
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button
+        -webkit-appearance: none
+
+
+/**************************************************
+/*                  B u t t o n                   *
+/**************************************************
+
+=InputButton()
+  cursor: pointer
+  width: $ObjectWidth-px
+  height: $ObjectHeight-px
+  background: $Background
+  border: $ObjectBorder
+  border-radius: $ObjectBorderRadius
+  padding: 8px 14px 12px 14px
+  position: relative
+  @media (hover), (min-width: 0\0), (min--moz-device-pixel-ratio: 0)
+    &:hover, &:active, &:focus
+      color: $DarkShade75
+      border-color: $DarkShade50
+    &:focus
+      box-shadow: $ObjectFocus
+
+=InputButtonIconLeft($content: "expand_more")
+  padding-left: 48px
+  &:before
+    +absolute-top-left(0, -1px)
+    content: $content
+    width: $ObjectHeight-px
+    height: $ObjectHeight-px
+    color: $DarkShade50
+  @media (hover), (min-width: 0\0), (min--moz-device-pixel-ratio: 0)
+    &:hover:before, &:active:before, &:focus:before
+      color: $DarkShade75
+
+=InputButtonIconRight($content: "expand_more")
+  padding-right: 48px
+  &:after
+    +absolute-top-right(0, -1px)
+    content: $content
+    width: $ObjectHeight-px
+    height: $ObjectHeight-px
+    color: $DarkShade50
+  @media (hover), (min-width: 0\0), (min--moz-device-pixel-ratio: 0)
+    &:hover:after, &:active:after, &:focus:after
+      color: $DarkShade75
+
+=ButtonLink()
+  +text-12-15-700
+  cursor: pointer
+  overflow: hidden
+  height: $ObjectHeight-px / 2
+  color: $Purple
+  &[disabled]
+    cursor: default
+    color: $DarkShade50
+  @media (hover), (min-width: 0\0), (min--moz-device-pixel-ratio: 0)
+    &:not([disabled])
+      &:hover, &:active
+        filter: saturate(250%)
+    &:focus
+      text-shadow: 0 0 1px $PurpleLight
+
+=Button()
+  +text-12-15-700
+  z-index: 0
+  cursor: pointer
+  overflow: hidden
+  height: $ObjectHeight-px
+  border-radius: 50%
+  padding: 0 20px
+  position: relative
+  &[disabled]
+    filter: opacity(50%)
+  &:before, &:after
+    pointer-events: none
+  @media (hover), (min-width: 0\0), (min--moz-device-pixel-ratio: 0)
+    &:focus
+      text-shadow: none
+      box-shadow: $ObjectFocus
+
+=ButtonPurple()
+  +Button
+  color: $Background
+  background: $PurpleGradient
+
+=ButtonWhite()
+  +Button
+  color: $Purple
+  background: $PurpleGradient
+  &:before
+    +absolute-top-left(2px)
+    z-index: -1
+    pointer-events: none
+    content: ""
+    width: calc(100% - 4px)
+    height: calc(100% - 4px)
+    background: $Background
+    border-radius: ($ObjectHeight-px - 2px) /2
+    display: block
+
+=ButtonIconLeft($content: "arrow_back", $color: $Background)
+  padding: 0 48px
+  &:before
+    +absolute-top-left(0, -1px)
+    content: $content
+    width: $ObjectHeight-px
+    height: $ObjectHeight-px
+    color: $color
+
+=ButtonIconRight($content: "arrow_forward", $color: $Background)
+  padding: 0 48px
+  &:after
+    +absolute-top-right(0, -1px)
+    content: $content
+    width: $ObjectHeight-px
+    height: $ObjectHeight-px
+    color: $color

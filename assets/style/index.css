@@ -1,0 +1,336 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap");
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/MaterialIcons-Regular.eot");
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url("../fonts/MaterialIcons-Regular.woff2") format("woff2"), url("../fonts/MaterialIcons-Regular.woff") format("woff"), url("../fonts/MaterialIcons-Regular.ttf") format("truetype");
+}
+/************************************************** */
+/*                 P a l e t t e                  * */
+/************************************************** */
+/************************************************** */
+/*                  C o l o r s                   * */
+/************************************************** */
+/************************************************** */
+/*                   S i z e s                    * */
+/************************************************** */
+/************************************************** */
+/*                 O b j e c t s                  * */
+/************************************************** */
+/************************************************** */
+/*                   F o n t s                    * */
+/************************************************** */
+/************************************************** */
+/*                    T e x t                     * */
+/************************************************** */
+/************************************************** */
+/*                    F l e x                     * */
+/************************************************** */
+/************************************************** */
+/*                A b s o l u t e                 * */
+/************************************************** */
+/************************************************** */
+/*                   I n p u t                    * */
+/************************************************** */
+/************************************************** */
+/*                  B u t t o n                   * */
+/************************************************** */
+/************************************************** */
+/*                 P a l e t t e                  * */
+/************************************************** */
+/************************************************** */
+/*                  C o l o r s                   * */
+/************************************************** */
+/************************************************** */
+/*                   S i z e s                    * */
+/************************************************** */
+/************************************************** */
+/*                 O b j e c t s                  * */
+/************************************************** */
+/************************************************** */
+/*                 P a l e t t e                  * */
+/************************************************** */
+/************************************************** */
+/*                  C o l o r s                   * */
+/************************************************** */
+/************************************************** */
+/*                   S i z e s                    * */
+/************************************************** */
+/************************************************** */
+/*                 O b j e c t s                  * */
+/************************************************** */
+/************************************************** */
+/*                   F o n t s                    * */
+/************************************************** */
+/************************************************** */
+/*                    T e x t                     * */
+/************************************************** */
+/************************************************** */
+/*                    F l e x                     * */
+/************************************************** */
+/************************************************** */
+/*                A b s o l u t e                 * */
+/************************************************** */
+/************************************************** */
+/*                   I n p u t                    * */
+/************************************************** */
+/************************************************** */
+/*                  B u t t o n                   * */
+/************************************************** */
+/************************************************** */
+/*                 P a l e t t e                  * */
+/************************************************** */
+/************************************************** */
+/*                  C o l o r s                   * */
+/************************************************** */
+/************************************************** */
+/*                   S i z e s                    * */
+/************************************************** */
+/************************************************** */
+/*                 O b j e c t s                  * */
+/************************************************** */
+html {
+  font-size: 14px;
+}
+
+* {
+  font-family: Montserrat, serif;
+  color: rgba(31, 32, 65, 0.75);
+  font-weight: 400;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 24px;
+  background: inherit;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+*:active, *:focus {
+  outline: none;
+}
+*:before, *:after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Material Icons, serif;
+  pointer-events: none;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 24px;
+  text-transform: none;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga";
+}
+
+body {
+  user-select: none;
+  min-height: 100vh;
+  background: white;
+}
+
+h1 {
+  color: #1F2041;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29.26px;
+}
+
+h2 {
+  color: #1F2041;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 23.16px;
+}
+
+h3, .label {
+  font-size: 12px;
+  line-height: 14.63px;
+  font-weight: 700;
+  color: #1F2041;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+}
+a[disabled] {
+  pointer-events: none;
+  cursor: default;
+  color: rgba(31, 32, 65, 0.5);
+}
+
+ul, li {
+  list-style-type: none;
+}
+
+details > summary {
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.button {
+  font-size: 12px;
+  line-height: 14.63px;
+  font-weight: 700;
+  z-index: 0;
+  cursor: pointer;
+  overflow: hidden;
+  height: 44px;
+  border-radius: 50%;
+  padding: 0 20px;
+  position: relative;
+}
+.button[disabled] {
+  filter: opacity(50%);
+}
+.button:before, .button:after {
+  pointer-events: none;
+}
+@media (hover), (min-width: 0\0 ), (min--moz-device-pixel-ratio: 0) {
+  .button:focus {
+    text-shadow: none;
+    box-shadow: 0 0 3px #8BA4F9;
+  }
+}
+.button-purple {
+  font-size: 12px;
+  line-height: 14.63px;
+  font-weight: 700;
+  z-index: 0;
+  cursor: pointer;
+  overflow: hidden;
+  height: 44px;
+  border-radius: 50%;
+  padding: 0 20px;
+  position: relative;
+  color: white;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+.button-purple[disabled] {
+  filter: opacity(50%);
+}
+.button-purple:before, .button-purple:after {
+  pointer-events: none;
+}
+@media (hover), (min-width: 0\0 ), (min--moz-device-pixel-ratio: 0) {
+  .button-purple:focus {
+    text-shadow: none;
+    box-shadow: 0 0 3px #8BA4F9;
+  }
+}
+.button-white {
+  font-size: 12px;
+  line-height: 14.63px;
+  font-weight: 700;
+  z-index: 0;
+  cursor: pointer;
+  overflow: hidden;
+  height: 44px;
+  border-radius: 50%;
+  padding: 0 20px;
+  position: relative;
+  color: #BC9CFF;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+.button-white[disabled] {
+  filter: opacity(50%);
+}
+.button-white:before, .button-white:after {
+  pointer-events: none;
+}
+@media (hover), (min-width: 0\0 ), (min--moz-device-pixel-ratio: 0) {
+  .button-white:focus {
+    text-shadow: none;
+    box-shadow: 0 0 3px #8BA4F9;
+  }
+}
+.button-white:before {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  background: white;
+  border-radius: 21px;
+  display: block;
+}
+.button-icon {
+  padding: 0 48px;
+}
+.button-icon:after {
+  position: absolute;
+  top: 0;
+  right: -1px;
+  content: "arrow_forward";
+  width: 44px;
+  height: 44px;
+  color: white;
+}
+
+.input {
+  width: 320px;
+  height: 44px;
+  background: white;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  border-radius: 4px;
+  padding: 2px 15px 0;
+}
+.input::placeholder {
+  color: rgba(31, 32, 65, 0.25);
+}
+@media (hover), (min-width: 0\0 ), (min--moz-device-pixel-ratio: 0) {
+  .input:hover, .input:focus {
+    border-color: 1px solid rgba(31, 32, 65, 0.5);
+  }
+  .input[type=number], .input[type=number]:hover, .input[type=number]:focus {
+    -moz-appearance: textfield;
+  }
+  .input[type=number]::-webkit-inner-spin-button, .input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+}
+
+.container {
+  min-width: 380px;
+  max-width: 1440px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 70px 140px 50px;
+  position: relative;
+  margin: 0 auto;
+}
+@media (max-width: 1439.49px) {
+  .container {
+    padding: calc(70px - (1440px - 100vw) * 0.0446428571) calc(140px - (1440px - 100vw) * 0.1636904762);
+  }
+}
+@media (max-width: 767.49px) {
+  .container {
+    padding: calc(40px - (768px - 100vw) * 0.0515463918) calc(30px - (768px - 100vw) * 0.0386597938);
+  }
+}
+@media (max-width: 539.49px) {
+  .container {
+    justify-content: center;
+  }
+}
+@media (max-width: 379.49px) {
+  .container {
+    padding: 20px 15px;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
