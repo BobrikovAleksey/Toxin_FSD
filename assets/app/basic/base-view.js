@@ -6,6 +6,7 @@ class BaseView {
      * @var $el             NodeElement     ссылка на связанный с объектом html-элемент
      * @var $name           string          уникальное название объекта
      * @var $state          object          состояние объекта
+     * @var $cache          object          сохраненное состояние объекта и прочие временные данные
      */
 
     constructor(data = {}, cache = false) {

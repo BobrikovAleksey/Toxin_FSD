@@ -2,28 +2,37 @@ import Router from './Router.js';
 
 const router = new Router({ mode: 'hash', root: '/' });
 
-const renderView = (viewName, params = {})  => {
-    router.$app && router.$app.hasOwnProperty('renderView') && router.$app.renderView(viewName, params);
+const renderView = (viewName, { page = 'landing-page' } = {})  => {
+    const app = router.$app;
+
+    if (app) {
+        const components = app['$cache']['components'];
+
+        if (app.hasOwnProperty('$state')) app.$state.page = page;
+
+        app.hasOwnProperty('renderView') && app.renderView(viewName);
+        components.hasOwnProperty('header') && components.header.update();
+    }
 };
 
 router
     .add(/about/, () => {
-        renderView('About');
+        renderView('About', { page: 'about' });
     })
     .add(/agreements\/(.*)/, (argument) => {
-        renderView('Agreements');
+        renderView('Agreements', { page: 'agreements' });
     })
     .add(/news/, () => {
-        renderView('News');
+        renderView('News', { page: 'news' });
     })
     .add(/services\/(.*)/, (service) => {
-        renderView('Services');
+        renderView('Services', { page: 'services' });
     })
     .add(/vacancies/, () => {
-        renderView('Vacancies');
+        renderView('Vacancies', { page: 'vacancies' });
     })
     .add('', () => {
-        renderView('LandingPage');
+        renderView('LandingPage', { page: 'landing-page' });
     });
 
 export default router;

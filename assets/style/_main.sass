@@ -3,9 +3,8 @@
 html
   font-size: 14px
 
-*
+*:not(span)
   +MontserratSerif
-  +textDarkShade75-400
   box-sizing: border-box
   font-size: 14px
   line-height: 24px
@@ -16,13 +15,16 @@ html
   margin: 0
   &:active, &:focus
     outline: none
-  &:before, &:after
-    +MaterialIcon
 
 body
+  +textDarkShade75-400
+  +flex-column
   user-select: none
   min-height: 100vh
+
+main
   background: $Background
+  flex-grow: 1
 
 h1
   +textDarkShade-24-29-700
@@ -46,8 +48,15 @@ ul, li
 details > summary
   list-style: none
 
+summary, input, button
+  &:before, &:after
+    +MaterialIcon
+
 summary::-webkit-details-marker
   display: none
+
+.input
+  +Input
 
 .button
   +Button
@@ -58,13 +67,9 @@ summary::-webkit-details-marker
   &-icon
     +ButtonIconRight()
 
-.input
-  +Input
-
 .container
   min-width: $MinWidth-px
   max-width: $MaxWidth-px
-  height: 100%
   display: flex
   justify-content: space-between
   padding: 70px $MaxPaddingH-px 50px

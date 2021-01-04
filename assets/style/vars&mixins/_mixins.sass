@@ -4,6 +4,9 @@
 /*                   F o n t s                    *
 /**************************************************
 
+=AwesomeSerif()
+  font-family: FontAwesome, serif
+
 =MontserratSerif()
   font-family: Montserrat, serif
 
@@ -39,6 +42,10 @@
   color: $DarkShade75
   font-weight: 400
 
+=textDarkShade50-400()
+  color: $DarkShade50
+  font-weight: 400
+
 =text-12-15-700()
   font-size: 12px
   line-height: 14.63px
@@ -61,6 +68,16 @@
   +text-12-15-700
   color: $DarkShade
   text-transform: uppercase
+
+=textDarkShade50-18-24-400()
+  +textDarkShade50-400
+  font-size: 18px
+  line-height: 24px
+
+=textDarkShade50-14-22-400()
+  +textDarkShade50-400
+  font-size: 14px
+  line-height: 22px
 
 
 /**************************************************
@@ -103,6 +120,31 @@
 
 =absolute-bottom-right($bottom, $right: $bottom)
   position: absolute
+  bottom: $bottom
+  right: $right
+
+
+/**************************************************
+/*                   F i x e d                    *
+/**************************************************
+
+=fixed-top-left($top, $left: $top)
+  position: fixed
+  top: $top
+  left: $left
+
+=fixed-top-right($top, $right: $top)
+  position: fixed
+  top: $top
+  right: $right
+
+=fixed-bottom-left($bottom, $left: $bottom)
+  position: fixed
+  bottom: $bottom
+  left: $left
+
+=fixed-bottom-right($bottom, $right: $bottom)
+  position: fixed
   bottom: $bottom
   right: $right
 
@@ -177,6 +219,7 @@
 
 =ButtonLink()
   +text-12-15-700
+  text-transform: uppercase
   cursor: pointer
   overflow: hidden
   height: $ObjectHeight-px / 2
@@ -197,7 +240,8 @@
   cursor: pointer
   overflow: hidden
   height: $ObjectHeight-px
-  border-radius: 50%
+  text-transform: uppercase
+  border-radius: $ObjectHeight-px / 2
   padding: 0 20px
   position: relative
   &[disabled]
@@ -205,6 +249,10 @@
   &:before, &:after
     pointer-events: none
   @media (hover), (min-width: 0\0), (min--moz-device-pixel-ratio: 0)
+    &:hover:not([disabled])
+      filter: saturate(250%)
+    &:active:not([disabled])
+      filter: none
     &:focus
       text-shadow: none
       box-shadow: $ObjectFocus
@@ -221,7 +269,6 @@
   &:before
     +absolute-top-left(2px)
     z-index: -1
-    pointer-events: none
     content: ""
     width: calc(100% - 4px)
     height: calc(100% - 4px)
@@ -229,20 +276,20 @@
     border-radius: ($ObjectHeight-px - 2px) /2
     display: block
 
-=ButtonIconLeft($content: "arrow_back", $color: $Background)
+=ButtonIconLeft($content: "arrow_back", $color: $Background, $width: $ObjectHeight-px, $height: $width)
   padding: 0 48px
   &:before
     +absolute-top-left(0, -1px)
     content: $content
-    width: $ObjectHeight-px
-    height: $ObjectHeight-px
+    width: $width
+    height: $height
     color: $color
 
-=ButtonIconRight($content: "arrow_forward", $color: $Background)
+=ButtonIconRight($content: "arrow_forward", $color: $Background, $width: $ObjectHeight-px, $height: $width)
   padding: 0 48px
   &:after
     +absolute-top-right(0, -1px)
     content: $content
-    width: $ObjectHeight-px
-    height: $ObjectHeight-px
+    width: $width
+    height: $height
     color: $color

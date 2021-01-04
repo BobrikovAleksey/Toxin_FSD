@@ -85,9 +85,9 @@ class Router {
     };
 
     /**
-     * Проверяет изменение маршрута
+     * Проверяет изменение маршрута и производит обновление
      */
-    interval = () => {
+    update = () => {
         if (this.current === this.getFragment() || this.$app === null) return;
 
         this.current = this.getFragment();
@@ -109,7 +109,7 @@ class Router {
      */
     listen = () => {
         clearInterval(this.interval);
-        this.interval = setInterval(this.interval, this.timeout);
+        this.interval = setInterval(this.update, this.timeout);
     }
 }
 

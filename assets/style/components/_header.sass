@@ -1,0 +1,176 @@
+@import ../vars&mixins/index
+
+.header
+  background: $Background
+  & .header
+    &__container
+      justify-content: space-between
+      padding-top: 15px
+      padding-bottom: 15px
+    &__logo
+      z-index: 202
+      height: 40px
+
+  & .menu
+    z-index: 201
+    background: $Background
+    display: flex
+    justify-content: center
+    margin-top: 1px
+    @media (max-width: #{$Breakpoint768 - 0.51}px)
+      +fixed-top-left(0)
+      overflow-y: auto
+      width: 100vw
+      height: 100vh
+      display: none
+      flex-direction: column
+      justify-content: flex-start
+      padding: 70px 30px
+    &[data-authorized] > .menu__authorization
+      display: none
+    &:not([data-authorized]) > .menu__account
+      display: none
+
+    & .menu__item
+      +flex-center-center
+      position: relative
+      margin-left: 20px
+      &:first-of-type
+        margin-left: 0
+      @media (max-width: #{$Breakpoint1080 - 0.50}px)
+        margin-left: calc(20px - (#{$Breakpoint1080-px} - 100vw) * #{(20 - 12) / ($Breakpoint1080 - $Breakpoint768)})
+      @media (max-width: #{$Breakpoint768 - 0.51}px)
+        margin-top: 20px
+        margin-left: 0
+        &:first-of-type
+          margin-top: 0
+
+    & .menu__link
+      +textDarkShade50-14-22-400
+      cursor: pointer
+      height: 22px
+      display: flex
+      align-items: center
+      @media (max-width: #{$Breakpoint768 - 0.51}px)
+        +textDarkShade50-18-24-400
+        height: 28px
+        justify-content: center
+      @media (hover), (min-width: 0\0), (min--moz-device-pixel-ratio: 0)
+        &:not(.menu__link_active)
+          &:hover, &:focus
+            border-top: 1px solid $Background
+            border-bottom: $ObjectBorder-focus
+          &:hover
+            color: $DarkShade75
+          &:active
+            border: none
+      &_icon
+        @media (max-width: #{$Breakpoint768 - 0.51}px)
+          margin-left: 25px
+        &:after
+          content: "expand_more"
+          padding-left: 1px
+      &_active
+        color: $DarkShade75
+        font-weight: 700
+
+    & a.menu__link_active
+        cursor: default
+        pointer-events: none
+
+    & .menu__submenu
+      +flex-column
+      +absolute-top-left(36px, 0)
+      z-index: 101
+      min-width: 144px
+      max-width: 196px
+      background: $Background
+      border: $ObjectBorder
+      border-radius: $ObjectBorderRadius
+      padding: 18px
+      @media (max-width: #{$Breakpoint768 - 0.51}px)
+        width: 100%
+        border: none
+        justify-content: center
+        position: static
+
+    & .menu__sub-item
+      margin-top: 14px
+      &:first-of-type
+        margin-top: 0
+      @media (max-width: #{$Breakpoint768 - 0.51}px)
+        margin-top: 16px
+
+    & .menu__sub-link
+      +textDarkShade50-14-22-400
+      height: 20px
+      @media (max-width: #{$Breakpoint768 - 0.51}px)
+        height: 24px
+        font-size: 16px
+      @media (hover), (min-width: 0\0), (min--moz-device-pixel-ratio: 0)
+        &:hover, &:focus
+          border-bottom: $ObjectBorder-focus
+        &:hover
+          color: $DarkShade75
+        &:active
+          border-bottom: none
+
+    & .menu__button
+      height: $ObjectHeightSm-px
+      border-radius: $ObjectHeightSm-px / 2
+      position: relative
+      &_icon
+        +AwesomeSerif
+        font-size: 22px
+        background: none
+        display: none
+      @media (min-width: #{$Breakpoint768 - 0.49}px) and (max-width: #{$Breakpoint1080 - 0.51}px)
+        &_text
+          display: none
+        &_icon
+          display: inline-block
+
+    & .menu__account
+      +textDarkShade50-14-22-400
+      +flex-center-center
+      max-width: $ObjectWidth-px
+      border-left: 1px solid $DarkShade10
+      padding-left: 20px
+      @media (max-width: #{$MaxWidth - 0.51}px)
+        max-width: calc(#{$MinWidth - $MinPaddingH}px - (#{$MinWidth-px} - 100vw) * #{($MinWidth - $MinPaddingH - 150) / ($MaxWidth - $Breakpoint768)})
+      @media (max-width: #{$Breakpoint768 - 0.51}px)
+        max-width: 100%
+        padding-right: 20px
+        margin-top: 40px
+      &_text
+        +textEllipsis
+        @media (max-width: #{$Breakpoint768 - 0.51}px)
+          font-size: 18px
+          color: $DarkShade75
+
+  & .header__menu
+    &-icon, &-button
+      width: 40px
+      height: 40px
+      display: none
+    &-icon
+      z-index: 202
+      @media (max-width: #{$Breakpoint768 - 0.51}px)
+        display: flex
+      &[data-action="open"] > .header__menu-button_menu
+        display: flex
+      &[data-action="close"]
+        & > .header__menu-button_close
+          display: flex
+        & ~ .menu
+          display: flex
+    &-button
+      &_menu
+        +ButtonIconRight("menu", $Background, 40px)
+      &_close
+        +ButtonIconRight("close", $Background, 40px)
+      &_menu, &_close
+        padding: 0
+      &_menu:after, &_close:after
+        font-size: 30px
+        right: 0

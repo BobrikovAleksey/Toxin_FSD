@@ -10,6 +10,7 @@ import Services from  './app/views/Services.js';
 import Vacancies from  './app/views/Vacancies.js';
 
 // components
+import Header from './app/components/Header.js';
 
 
 const template = `
@@ -24,6 +25,10 @@ const app = {
     $config,
     $router,
 
+    $state: {
+        page: '',
+    },
+
     $classes: {
         // views
         About,
@@ -34,11 +39,14 @@ const app = {
         Vacancies,
 
         // components
-
+        Header,
     },
 
     $components: [
-        // { className: 'Header' },
+        {
+            className: 'Header',
+            params: { name: 'header' },
+        },
         // { className: 'Footer' },
     ],
 
@@ -55,7 +63,7 @@ const app = {
         this.$mainNode = document.querySelector('main');
 
         this.$components.forEach((el) => {
-            const Component = app.$classes[el.className];
+            const Component = this.$classes[el.className];
             const node = document.querySelector(Component.getTagName());
 
             if (node) {
@@ -64,7 +72,7 @@ const app = {
                     el.hasOwnProperty('cache') ? el.cache : false
                 );
 
-                newComponent.create(this, node);
+                newComponent.create(this, node, this.$cache.components);
             }
         });
 
