@@ -176,7 +176,7 @@ html {
   box-sizing: border-box;
   font-size: 14px;
   line-height: 24px;
-  background: inherit;
+  background: none;
   border: none;
   outline: none;
   padding: 0;
@@ -418,22 +418,22 @@ summary::-webkit-details-marker {
   position: relative;
   margin: 0 auto;
 }
-@media (max-width: 1439.49px) {
+@media (max-width: 1440px) {
   .container {
     padding: calc(70px - (1440px - 100vw) * 0.0446428571) calc(140px - (1440px - 100vw) * 0.1636904762);
   }
 }
-@media (max-width: 767.49px) {
+@media (max-width: 768px) {
   .container {
     padding: calc(40px - (768px - 100vw) * 0.0515463918) calc(30px - (768px - 100vw) * 0.0386597938);
   }
 }
-@media (max-width: 539.49px) {
+@media (max-width: 540px) {
   .container {
     justify-content: center;
   }
 }
-@media (max-width: 379.49px) {
+@media (max-width: 380px) {
   .container {
     padding: 20px 15px;
   }
@@ -895,7 +895,7 @@ summary::-webkit-details-marker {
   border-bottom: 1px solid rgba(31, 32, 65, 0.1);
 }
 .footer .footer-menu__container {
-  padding-top: 97px;
+  padding-top: 101px;
   padding-bottom: 97px;
 }
 .footer .footer-menu__logo {
@@ -1123,6 +1123,105 @@ summary::-webkit-details-marker {
   .footer .menu__column[open] > .menu__caption:active:after {
     transform: none;
     top: 0;
+  }
+}
+
+/************************************************** */
+/*                 P a l e t t e                  * */
+/************************************************** */
+/************************************************** */
+/*                  C o l o r s                   * */
+/************************************************** */
+/************************************************** */
+/*                   S i z e s                    * */
+/************************************************** */
+/************************************************** */
+/*                 O b j e c t s                  * */
+/************************************************** */
+/************************************************** */
+/*                   F o n t s                    * */
+/************************************************** */
+/************************************************** */
+/*                    T e x t                     * */
+/************************************************** */
+/************************************************** */
+/*                    F l e x                     * */
+/************************************************** */
+/************************************************** */
+/*                A b s o l u t e                 * */
+/************************************************** */
+/************************************************** */
+/*                   F i x e d                    * */
+/************************************************** */
+/************************************************** */
+/*                   I n p u t                    * */
+/************************************************** */
+/************************************************** */
+/*                  B u t t o n                   * */
+/************************************************** */
+/************************************************** */
+/*                 P a l e t t e                  * */
+/************************************************** */
+/************************************************** */
+/*                  C o l o r s                   * */
+/************************************************** */
+/************************************************** */
+/*                   S i z e s                    * */
+/************************************************** */
+/************************************************** */
+/*                 O b j e c t s                  * */
+/************************************************** */
+.landing-page {
+  height: 830px;
+  background-image: url(../images/background-landing-page.jpg);
+  background-repeat: no-repeat;
+  background-size: auto min(1022px, calc(1022 * (100vw / 1080)));
+  background-position: top max(-131px, calc(131 * ((100vw - 1440px) / -900) - 131px)) center;
+}
+.landing-page .landing-page__container {
+  height: 100%;
+}
+.landing-page .landing-page__about {
+  position: absolute;
+  bottom: 21px;
+  right: 134px;
+  width: 300px;
+  text-align: right;
+}
+@media (max-width: 1440px) {
+  .landing-page .landing-page__about {
+    right: calc(140px - 6px - (1440px - 100vw) * 0.1636904762);
+  }
+}
+@media (max-width: 1080px) {
+  .landing-page {
+    height: calc(830px - (1080px - 100vw) * 0.5128205128);
+  }
+}
+@media (max-width: 768px) {
+  .landing-page {
+    height: calc(670px - (768px - 100vw) * 0.8333333333);
+  }
+  .landing-page .landing-page__about {
+    right: calc(30px - (768px - 100vw) * 0.0386597938);
+  }
+}
+@media (max-width: 540px) {
+  .landing-page {
+    height: calc(480px - (540px - 100vw) * 0.5);
+    background-size: auto calc(480px - (540px - 100vw) * 0.5);
+    background-position: top 0 center;
+  }
+  .landing-page .landing-page__about {
+    visibility: hidden;
+    right: 0;
+  }
+}
+@media (max-width: 380px) {
+  .landing-page {
+    height: 400px;
+    background-size: auto 400px;
+    background-position: top 0 left -110px;
   }
 }
 

@@ -6,8 +6,10 @@ class LandingPage extends BaseView {
 
     template = `
         <div class="landing-page">
-            <div class="container">
-                <h1>Главная страница</h1>
+            <div class="container landing-page__container">
+                <x-card-search> </x-card-search>
+                
+                <p class="landing-page__about">Лучшие номера для вашей работы, отдыха и просто вдохновения</p>
             </div>
         </div>
     `;

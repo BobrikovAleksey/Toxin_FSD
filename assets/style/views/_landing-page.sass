@@ -1,0 +1,45 @@
+@import ../vars&mixins/index
+
+.landing-page
+  height: 830px
+  background-image: url(../images/background-landing-page.jpg)
+  background-repeat: no-repeat
+  background-size: auto min(1022px, calc(1022 * (100vw / #{$Breakpoint1080})))
+  background-position: top max(-131px, calc(131 * ((100vw - #{$MaxWidth-px}) / #{($Breakpoint540 - $MaxWidth)}) - 131px)) center
+  & .landing-page
+    &__container
+      height: 100%
+    &__about
+      +absolute-bottom-right(21px, $MaxPaddingH-px - 6px)
+      width: 300px
+      text-align: right
+
+
+  @media (max-width: $MaxWidth-px)
+    & .landing-page__about
+      right: calc(#{$MaxPaddingH-px} - 6px - (#{$MaxWidth-px} - 100vw) * #{($MaxPaddingH - $MinPaddingH) / ($MaxWidth - $Breakpoint768)})
+
+
+  @media (max-width: $Breakpoint1080-px)
+    height: calc(830px - (#{$Breakpoint1080-px} - 100vw) * #{160 / ($Breakpoint1080 - $Breakpoint768)})
+
+
+  @media (max-width: $Breakpoint768-px)
+    height: calc(670px - (#{$Breakpoint768-px} - 100vw) * #{190 / ($Breakpoint768 - $Breakpoint540)})
+    & .landing-page__about
+      right: calc(#{$MinPaddingH-px} - (#{$Breakpoint768-px} - 100vw) * #{($MinPaddingH / 2) / ($Breakpoint768 - $MinWidth)})
+
+
+  @media (max-width: $Breakpoint540-px)
+    height: calc(480px - (#{$Breakpoint540-px} - 100vw) * #{80 / ($Breakpoint540 - $MinWidth)})
+    background-size: auto calc(480px - (#{$Breakpoint540-px} - 100vw) * #{80 / ($Breakpoint540 - $MinWidth)})
+    background-position: top 0 center
+    & .landing-page__about
+      visibility: hidden
+      right: 0
+
+
+  @media (max-width: $MinWidth-px)
+    height: 400px
+    background-size: auto 400px
+    background-position: top 0 left -110px

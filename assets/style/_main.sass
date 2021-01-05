@@ -8,7 +8,7 @@ html
   box-sizing: border-box
   font-size: 14px
   line-height: 24px
-  background: inherit
+  background: none
   border: none
   outline: none
   padding: 0
@@ -77,11 +77,11 @@ summary::-webkit-details-marker
   padding: 70px $MaxPaddingH-px 50px
   position: relative
   margin: 0 auto
-  @media (max-width: #{$MaxWidth - 0.51}px)
+  @media (max-width: $MaxWidth-px)
     padding: calc(70px - (#{$MaxWidth-px} - 100vw) * #{(70 - 40) / ($MaxWidth - $Breakpoint768)}) calc(#{$MaxPaddingH-px} - (#{$MaxWidth-px} - 100vw) * #{($MaxPaddingH - $MinPaddingH) / ($MaxWidth - $Breakpoint768)})
-  @media (max-width: #{$Breakpoint768 - 0.51}px)
+  @media (max-width: $Breakpoint768-px)
     padding: calc(40px - (#{$Breakpoint768-px} - 100vw) * #{(40 - 20) / ($Breakpoint768 - $MinWidth)})  calc(#{$MinPaddingH-px} - (#{$Breakpoint768-px} - 100vw) * #{($MinPaddingH / 2) / ($Breakpoint768 - $MinWidth)})
-  @media (max-width: #{$Breakpoint540 - 0.51}px)
+  @media (max-width: $Breakpoint540-px)
     justify-content: center
-  @media (max-width: #{$MinWidth - 0.51}px)
+  @media (max-width: $MinWidth-px)
     padding: 20px #{$MinPaddingH-px / 2}
