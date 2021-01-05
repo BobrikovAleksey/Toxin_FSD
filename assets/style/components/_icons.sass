@@ -1,19 +1,21 @@
 @import ../vars&mixins/index
 
+.purple-gradient
+  &-start
+    stop-color: $Purple
+  &-stop
+    stop-color: $PurpleLight
+
+.green-gradient
+  &-start
+    stop-color: $Green
+  &-stop
+    stop-color: $GreenLight
+
 .logo
   fill: none
-  & .logo
-    &__word
-      fill: $DarkShade
-    &__left-element
-      stop-color: $Purple
-    &__left-element_offset
-      stop-color: $PurpleLight
-    &__right-element
-      stop-color: $Green
-    &__right-element_offset
-      stop-color: $GreenLight
-    &__circle
-      stop-color: $Purple
-    &__circle_offset
-      stop-color: $PurpleLight
+  & .logo__word
+    fill: $DarkShade
+
+.facebook, .instagram, .twitter
+  fill: none

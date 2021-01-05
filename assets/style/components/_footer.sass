@@ -1,0 +1,184 @@
+@import ../vars&mixins/index
+
+.footer
+  background: $Background
+
+  & .footer-menu
+    border-bottom: 1px solid $DarkShade10
+    &__container
+      padding-top: 97px
+      padding-bottom: 97px
+    &__logo
+      height: 40px
+    &__about, &__subscribe
+      width: $ObjectWidthSm-px
+    &__description
+      margin-top: 10px
+    &__subscribe
+      padding-top: 2px
+    &__text
+      margin-top: 16px
+    &__form
+      width: 100%
+      margin-top: 23px
+
+  & .menu
+    display: flex
+    margin: 2px 20px 0
+    &__list
+      padding: 0 20px
+      &:first-of-type
+        padding-left: 0
+      &:last-of-type
+        padding-right: 0
+    &__column
+      width: 160px
+    &__item
+      margin-top: 14px
+      &:first-of-type
+        margin-top: 16px
+    &__link
+      +textDarkShade50-14-22-400
+
+  & .menu__caption
+    +textDarkShade-12-20-700-uppercase
+    pointer-events: none
+    cursor: pointer
+  & .menu__column[open] > .menu__caption:after
+    transform: rotate(180deg)
+
+  & .footer-copyright
+    &__container
+      padding-top: 23px
+      padding-bottom: 23px
+    &__logo
+      height: 40px
+      display: none
+    &__text
+      text-align: center
+    &__links
+      display: flex
+    &__link
+      +flex-center-center
+      overflow: hidden
+      width: 24px
+      height: 24px
+      border-radius: $ObjectBorderRadius
+      margin-left: 20px
+      &:first-of-type
+        margin-left: 0
+
+
+  /* Дисплей от 1320px до 1440px */
+  @media (min-width: #{$MaxWidth - 120}px) and (max-width: $MaxWidth-px)
+    & .menu
+      margin: 2px calc(20px - (#{$MaxWidth-px} - 100vw) / 12) 0
+      &__list
+        padding: 0 calc(20px - (#{$MaxWidth-px} - 100vw) / 12)
+
+
+  /* Дисплей до 1320px */
+  @media (max-width: #{$MaxWidth - 120}px)
+    & .footer-menu
+      &__container
+        flex-direction: column
+        align-items: center
+      &__about, &__subscribe
+        width: $ObjectWidth-px
+        +flex-column
+        align-items: center
+      &__description, &__text
+        text-align: center
+
+    & .menu
+      margin: 40px 20px
+
+
+  /* Дисплей до 768px */
+  @media (max-width: $Breakpoint768-px)
+    & .footer-menu__about
+      display: none
+
+    & .menu
+      margin: 0 0 40px
+
+    & .footer-copyright
+      &__container
+        +flex-column
+        align-items: center
+        padding-top: 120px
+        padding-bottom: 120px
+      &__logo
+        display: block
+        margin-bottom: 17px
+      &__links
+        margin-top: 21px
+
+
+  /* Дисплей от 580px до 640px */
+  @media (min-width: #{$Breakpoint540 + 40}px) and (max-width: #{$Breakpoint540 + 100}px)
+    & .menu__list
+      padding: 0 calc(20px - (#{$Breakpoint540-px + 100px} - 100vw) / 6)
+
+
+  /* Дисплей до 580px */
+  @media (max-width: #{$Breakpoint540 + 40}px)
+    & .menu
+      flex-direction: column
+      &__list
+        padding: 0
+        margin-top: 23px
+        &:first-of-type
+          margin-top: 0
+      &__column
+        width: $ObjectWidthSm-px
+      &__item
+        text-align: center
+
+    & .menu__caption
+      +flex-center-center
+      pointer-events: auto
+      cursor: pointer
+      width: fit-content
+      height: 22px
+      position: relative
+      margin: 0 auto
+      &:after
+        +MaterialIcon
+        +absolute-top-right(0, -25px)
+        content: "expand_more"
+        height: 22px
+        width: 24px
+
+
+  /* Эффекты с компьютерной мышкой */
+  @media (hover), (min-width: 0\0), (min--moz-device-pixel-ratio: 0)
+    & .menu__link
+      &:hover, &:focus
+        border-bottom: $ObjectBorder-focus
+        color: $DarkShade75
+      &:active
+        color: $DarkShade75
+        border-bottom: none
+
+    & .footer-copyright__link
+      &:hover, &:focus
+        filter: saturate(300%)
+      &:active
+        filter: none
+
+    @media (max-width: #{$Breakpoint540 + 40}px)
+      & .menu__caption
+        &:hover, &:focus
+          border-top: 1px solid $Background
+          border-bottom: $ObjectBorder-focus
+          &:after
+            top: -1px
+        &:active
+          border: none
+          &:after
+            transform: rotate(180deg)
+            top: 0
+      & .menu__column[open] > .menu__caption:active:after
+        transform: none
+        top: 0

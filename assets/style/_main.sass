@@ -13,6 +13,8 @@ html
   outline: none
   padding: 0
   margin: 0
+  &:before, &:after
+    box-sizing: border-box
   &:active, &:focus
     outline: none
 
@@ -33,7 +35,7 @@ h2
   +textDarkShade-19-23-700
 
 h3, .label
-  +textDarkShade-12-15-700-uppercase
+  +textDarkShade-12-20-700-uppercase
 
 a
   text-decoration: none

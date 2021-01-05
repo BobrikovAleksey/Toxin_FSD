@@ -100,7 +100,7 @@ class Header extends BaseComponent {
         if (typeof name === 'string') this.$name = name;
 
         this.$cache = {
-            mouse: '',
+            mouse: false,
         };
     };
 

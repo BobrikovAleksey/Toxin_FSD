@@ -1,0 +1,26 @@
+@import ../vars&mixins/index
+
+.subscribe
+  display: flex
+  position: relative
+  & .subscribe
+    &__input
+      padding-right: #{$ObjectHeight-px + 6px}
+    &__button
+      +absolute-top-right(1px)
+      cursor: pointer
+      width: #{$ObjectHeight-px - 2px}
+      height: #{$ObjectHeight-px - 2px}
+      border-top-right-radius: $ObjectBorderRadius
+      border-bottom-right-radius: $ObjectBorderRadius
+      &:after
+        content: "arrow_forward"
+        color: $Purple
+
+  /* Эффекты с компьютерной мышкой */
+  @media (hover), (min-width: 0\0), (min--moz-device-pixel-ratio: 0)
+    & .subscribe__button
+      &:hover, &:focus
+        filter: saturate(300%)
+      &:active
+        filter: none

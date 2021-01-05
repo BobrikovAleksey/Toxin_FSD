@@ -10,6 +10,7 @@ import Services from  './app/views/Services.js';
 import Vacancies from  './app/views/Vacancies.js';
 
 // components
+import Footer from './app/components/Footer.js';
 import Header from './app/components/Header.js';
 
 
@@ -39,15 +40,13 @@ const app = {
         Vacancies,
 
         // components
+        Footer,
         Header,
     },
 
     $components: [
-        {
-            className: 'Header',
-            params: { name: 'header' },
-        },
-        // { className: 'Footer' },
+        { className: 'Header' },
+        { className: 'Footer' },
     ],
 
     $cache: {
