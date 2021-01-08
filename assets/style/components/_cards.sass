@@ -1,0 +1,31 @@
+@import ../vars&mixins/index
+
+.card
+  width: $CardWidth-px
+  height: fit-content
+  background: $Background
+  border: $CardBorder
+  border-radius: $ObjectBorderRadius
+  box-shadow: $ObjectShadow-25
+  padding: $CardPaddingTopMax-px $CardPaddingMax-px $CardPaddingMax-px
+
+  &.card-search
+    & .card__datepicker
+      margin-top: 22px
+    & .card__select
+      margin-top: 21px
+    & .card__button
+      width: $ObjectWidth-px
+      margin-top: 31px
+
+
+  /* Дисплей до 768px */
+  @media (max-width: $Breakpoint768-px)
+    width: calc(#{$ObjectWidth-px} + (#{$CardPaddingMax-px} - (#{$Breakpoint768-px} - 100vw) * #{($CardPaddingMax - $CardPaddingMin) / ($Breakpoint768 - $MinWidth)}) * 2)
+    padding: calc(#{$CardPaddingTopMax-px} - (#{$Breakpoint768-px} - 100vw) * #{($CardPaddingTopMax - $CardPaddingTopMin) / ($Breakpoint768 - $MinWidth)}) calc(#{$CardPaddingMax-px} - (#{$Breakpoint768-px} - 100vw) * #{($CardPaddingMax - $CardPaddingMin) / ($Breakpoint768 - $MinWidth)})
+
+
+  /* Дисплей до 380px */
+  @media (max-width: $MinWidth-px)
+    width: #{$ObjectWidth + $CardPaddingMin * 2}px
+    padding: $CardPaddingTopMin-px $CardPaddingMin-px

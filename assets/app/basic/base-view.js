@@ -23,17 +23,17 @@ class BaseView {
         app.$mainNode.insertAdjacentHTML('beforeend', this._getTemplate());
         this.$el = app.$mainNode.lastElementChild;
 
-        if (this.$name) {
-            this.$app.$cache.views[this.$name] = this;
-            this.$cache.components = {};
+        if (this.hasOwnProperty('$name')) {
+            this.$app.$cache.views[this['$name']] = this;
+            this['$cache'].components = {};
         } else {
-            this.$cache.components = null;
+            this['$cache'].components = null;
         }
 
         if (!this.hasOwnProperty('$components')) return;
 
-        this.$components.forEach((el) => {
-            const Component = app.components[el.className];
+        this['$components'].forEach((el) => {
+            const Component = app.$classes[el.className];
             const node = this.$el.querySelector(Component.getTagName());
 
             if (node) {
@@ -42,7 +42,7 @@ class BaseView {
                     el.hasOwnProperty('cache') ? el.cache : false
                 );
 
-                newComponent.create(this, node, this.$cache.components);
+                newComponent.create(this.$app, node, this['$cache'].components);
             }
         });
     };
@@ -71,7 +71,7 @@ class BaseView {
     _getTemplate = function () {
         const urlPattern = /{{\s*url\s*}}/g;
 
-        return this.template.replace(urlPattern, this.$app.$config.baseUrl);
+        return this.hasOwnProperty('template') ? this['template'].replace(urlPattern, this.$app.$config.baseUrl) : '';
     }.bind(this);
 }
 

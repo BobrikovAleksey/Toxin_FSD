@@ -14,6 +14,13 @@ class LandingPage extends BaseView {
         </div>
     `;
 
+    $components = [
+        {
+            className: 'CardSearch',
+            params: { name: 'cardSearch' },
+        },
+    ];
+
     constructor(data = {}, cache = false) {
         super(data, cache);
     };

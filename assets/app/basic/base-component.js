@@ -66,24 +66,26 @@ class BaseComponent {
         this.$el.className += ` ${ node.className }`;
         node.parentNode.removeChild(node);
 
-        if (storage !== null && this.$name) {
-            storage[this.$name] = this;
-            this.$cache.components = {};
+        if (storage !== null && this.hasOwnProperty('$name')) {
+            storage[this['$name']] = this;
+            this['$cache'].components = {};
         } else {
-            this.$cache.components = null;
+            this['$cache'].components = null;
         }
 
+        if (!this.hasOwnProperty('$components')) return;
 
-        if (!this.hasOwnProperty('components')) return;
-
-        this.components.forEach((el) => {
-            const Component = app.components[el.type];
+        this['$components'].forEach((el) => {
+            const Component = app.$classes[el.className];
             const node = this.$el.querySelector(Component.getTagName());
 
             if (node) {
-                const newComponent =  new Component(el.params, el.hasOwnProperty('cache') && el.cache);
+                const newComponent =  new Component(
+                    el.hasOwnProperty('params') ? el.params : {},
+                    el.hasOwnProperty('cache') ? el.cache : false
+                );
 
-                newComponent.create(app, node, this.$components);
+                newComponent.create(app, node, this['$cache'].components);
             }
         });
     };
@@ -97,7 +99,8 @@ class BaseComponent {
         const listPattern = /{{\s*list\s*}}/g;
         const urlPattern = /{{\s*url\s*}}/g;
 
-        return this.template.replace(listPattern, this._getTemplateList())
+        return !this.hasOwnProperty('template') ? '' :
+            this['template'].replace(listPattern, this._getTemplateList())
                             .replace(urlPattern, this.$app.$config.baseUrl);
     }.bind(this);
 
@@ -109,7 +112,7 @@ class BaseComponent {
     _getTemplateList = function () {
         if (!this.hasOwnProperty('templateList') || !this.$state.hasOwnProperty('list')) return '';
 
-        return this.templateList.repeat(this.$state.list.length);
+        return this['templateList'].repeat(this.$state.list.length);
     }.bind(this);
 }
 

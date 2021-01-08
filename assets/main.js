@@ -9,6 +9,9 @@ import News from  './app/views/News.js';
 import Services from  './app/views/Services.js';
 import Vacancies from  './app/views/Vacancies.js';
 
+// forms
+import CardSearch from './app/forms/CardSearch.js';
+
 // components
 import Footer from './app/components/Footer.js';
 import Header from './app/components/Header.js';
@@ -39,7 +42,9 @@ const app = {
         Services,
         Vacancies,
 
-        // components
+        // forms & components
+        CardSearch,
+
         Footer,
         Header,
     },
